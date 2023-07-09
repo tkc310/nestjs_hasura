@@ -4,12 +4,26 @@
 ## Introduction
 
 ```
-# postgresqlコンテナ起動 (事前にdocker desktopを起動)  
+# apply pre-push githook (lefthook)
+$ githooks:sync
+
+# node & npm
+$ nodenv install 18.13.0
+$ nodenv rehash
+$ npm i
+
+# terminate postgresql docker container (Launch docker desktop in advance)  
 $ docker-compose up -d
 
-# envファイル追加
+# add secret env file
 $ touch .env
 $ echo 'DATABASE_URL="postgresql://root:secret@localhost:5432/nestjs_db"' >> .env
+
+$ cd apps/api
+# migration & upsert prisma client
+$ npm run db:migrate:dev
+# add fixture data
+$ npm run db:fixture
 ```
 
 ## Refs & Memo
