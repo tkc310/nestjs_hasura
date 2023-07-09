@@ -1,0 +1,17 @@
+# https://matsuand.github.io/docs.docker.jp.onthefly/compose/compose-file/compose-file-v3/
+version: '3.9'
+services:
+  db:
+    # https://hub.docker.com/_/postgres/
+    image: postgres:15.3-alpine
+    container_name: nestjs_db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=nestjs_db
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  db_volume:
