@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "private": true,
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
+  "scripts": {
+    "lint:ts": "tsc --noEmit",
+    "db:studio": "prisma studio",
+    "db:fixture": "ts-node ./src/prisma/fixtures/index.ts",
+    "db:init": "prisma db push",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:migrate": "prisma migrate deploy"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.1",
+    "prisma": "4.16.2",
+    "ts-node": "10.9.1"
+  },
+  "dependencies": {
+    "@prisma/client": "4.16.2"
+  }
+}
