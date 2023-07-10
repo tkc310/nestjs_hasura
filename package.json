@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "githooks:sync": "lefthook install -a",
-    "githooks:test": "lefthook run pre-push"
+    "githooks:test": "lefthook run pre-push",
+    "api:i": "npm i -D -w apps/api",
+    "api:i:dev": "npm i -D -w apps/api"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.61.0",
