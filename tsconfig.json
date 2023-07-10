@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": false,
+    "removeComments": true,
     
     // constraints
     "strict": true,
@@ -21,5 +22,10 @@
     "exactOptionalPropertyTypes": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+
+    // decorators
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
   },
 }
