@@ -1,12 +1,30 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    /* nestjs用のデフォルト設定 ここから */
+    "target": "ES2021",
+    "declaration": true,
+    // default exportがない場合もエラーにしない (ランタイムエラーの可能性あり)
+    "allowSyntheticDefaultImports": true,
+
+    // strict settings (nestjs用に緩和)
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+
+    // decorators
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    /* nestjs用の設定 ここまで */
+
     // directory settings
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "typeRoots": ["src/@types", "../../node_modules/@types"]
+    "typeRoots": ["src/@types", "node_modules/@types"]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
   "exclude": ["node_modules"],

@@ -1,9 +1,8 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
-    es2022: true,
     node: true,
+    jest: true,
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
@@ -11,12 +10,10 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint'],
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['dist/**'],
+  ignorePatterns: ['dist/**', '.eslintrc.js'],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 'es2022',
+    project: 'tsconfig.json',
+    ecmaVersion: 'es2021',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
   },
@@ -34,9 +31,7 @@ module.exports = {
   // @refs: https://gist.github.com/sin-tanaka/b18bf1b5b46bd685fee93bd26fb473b3
   rules: {
     // 関数の戻り値はtsの推論に任せる (exportする関数は必要)
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    // anyを禁止 (必要なケースは行コメントでeslint-disableする)
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',    
     // ts-ignoreを許可する
     '@typescript-eslint/ban-ts-comment': 'off',
     // type Props = {} などを許可する ()
@@ -48,23 +43,15 @@ module.exports = {
         },
       },
     ],
+
+    /* nestjs用の設定 ここから */
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    /* nestjs用の設定 ここまで */
+
     // 厳密等価演算子を強制
     eqeqeq: 2,
-    // imgタグの利用を許可する
-    '@next/next/no-img-element': 'off',
-    'no-console': 'warn',
-    // e.g. prop={'foo'} -> prop='foo'
-    'react/jsx-curly-brace-presence': 'warn',
-    // e.g. opened={true} -> opened
-    'react/jsx-boolean-value': 'warn',
-    // e.g. <Foo></Foo> -> <Foo />
-    'react/self-closing-comp': [
-      'warn',
-      {
-        component: true,
-        html: true,
-      },
-    ],
     // FIXME: logだけ除外する
     'no-console': 'off',
   },
