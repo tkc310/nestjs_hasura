@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     /* nestjs用のデフォルト設定 ここから */
+    "module": "CommonJS",
     "target": "ES2021",
     "declaration": true,
     // default exportがない場合もエラーにしない (ランタイムエラーの可能性あり)
@@ -12,6 +13,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "noEmit": false,
 
     // decorators
     "emitDecoratorMetadata": true,
