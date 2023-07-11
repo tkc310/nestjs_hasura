@@ -9,11 +9,26 @@ type Article {
   title: String!
 }
 
+input CreateArticleInput {
+  content: String!
+  published: Boolean! = false
+  title: String!
+}
+
 type Mutation {
+  createArticle(input: CreateArticleInput!): Article!
   removeArticle(id: Int!): Article!
+  updateArticle(input: UpdateArticleInput!): Article!
 }
 
 type Query {
   article(id: Int!): Article!
   articles: [Article!]!
+}
+
+input UpdateArticleInput {
+  content: String!
+  id: ID!
+  published: Boolean! = false
+  title: String!
 }
