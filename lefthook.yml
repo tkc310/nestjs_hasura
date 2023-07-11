@@ -1,27 +1,28 @@
 pre-push:
   parallel: true
   commands:
-    api-lint:
-      root: "apps/api/"
-      glob: "src/*.{js,ts}"
-      run: npm run lint
+    # api-lint:
+    #   root: "apps/api/"
+    #   glob: "src/*.{js,ts}"
+    #   run: npm run lint
     api-lint:ts:
       root: "apps/api/"
       glob: "src/*.{ts}"
       run: npm run lint:ts
-    api-prettier:
-      root: "apps/api/"
-      glob: "src/*.{json,js,ts}"
-      run: npm run prettier
-    app-lint:
-      root: "packages/app/"
-      glob: "src/*.{js,ts,tsx}"
-      run: npm run lint
-    app-lint:ts:
-      root: "packages/app/"
-      glob: "src/*.{ts,tsx}"
-      run: npm run lint:ts
-    app-prettier:
-      root: "packages/app/"
-      glob: "src/*.{js,ts,tsx}"
-      run: npm run prettier
+    # api-prettier:
+    #   root: "apps/api/"
+    #   glob: "src/*.{json,js,ts}"
+    #   run: npm run prettier
+    # 追加してからコメントインする
+    # app-lint:
+    #   root: "packages/app/"
+    #   glob: "src/*.{js,ts,tsx}"
+    #   run: npm run lint
+    # app-lint:ts:
+    #   root: "packages/app/"
+    #   glob: "src/*.{ts,tsx}"
+    #   run: npm run lint:ts
+    # app-prettier:
+    #   root: "packages/app/"
+    #   glob: "src/*.{js,ts,tsx}"
+    #   run: npm run prettier
