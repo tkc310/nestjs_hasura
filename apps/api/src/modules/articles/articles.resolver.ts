@@ -1,17 +1,15 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { ArticlesService } from './articles.service';
 import { Article } from './entities/article.entity';
-import { CreateArticleInput } from './dto/create-article.input';
-import { UpdateArticleInput } from './dto/update-article.input';
 
 @Resolver(() => Article)
 export class ArticlesResolver {
-  constructor(private readonly articlesService: ArticlesService) {}
+  constructor(private readonly articlesService: ArticlesService) { }
 
-  @Mutation(() => Article)
-  createArticle(@Args('createArticleInput') createArticleInput: CreateArticleInput) {
-    return this.articlesService.create(createArticleInput);
-  }
+  // @Mutation(() => Article)
+  // createArticle(@Args('createArticleInput') createArticleInput: CreateArticleInput) {
+  //   return this.articlesService.create(createArticleInput);
+  // }
 
   @Query(() => [Article], { name: 'articles' })
   findAll() {
@@ -23,10 +21,10 @@ export class ArticlesResolver {
     return this.articlesService.findOne(id);
   }
 
-  @Mutation(() => Article)
-  updateArticle(@Args('updateArticleInput') updateArticleInput: UpdateArticleInput) {
-    return this.articlesService.update(updateArticleInput.id, updateArticleInput);
-  }
+  // @Mutation(() => Article)
+  // updateArticle(@Args('updateArticleInput') updateArticleInput: UpdateArticleInput) {
+  //   return this.articlesService.update(updateArticleInput.id, updateArticleInput);
+  // }
 
   @Mutation(() => Article)
   removeArticle(@Args('id', { type: () => Int }) id: number) {

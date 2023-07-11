@@ -1,4 +1,5 @@
 {
+  "name": "nestjs_hasura",
   "private": true,
   "engines": {
     "node": "18.x",
@@ -10,19 +11,19 @@
   "scripts": {
     "githooks:sync": "lefthook install -a",
     "githooks:test": "lefthook run pre-push",
-    "api:i": "npm i -D -w apps/api",
+    "api:i": "npm i -w apps/api",
     "api:i:dev": "npm i -D -w apps/api"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
-    "eslint": "^8.44.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "lefthook": "^1.4.3",
-    "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0",
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-import-resolver-typescript": "3.5.5",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "lefthook": "1.4.3",
+    "prettier": "3.0.0",
+    "typescript": "5.1.6"
   }
 }

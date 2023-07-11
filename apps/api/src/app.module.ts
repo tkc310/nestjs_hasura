@@ -1,9 +1,9 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { PrismaModule } from 'nestjs-prisma';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { PrismaModule } from 'nestjs-prisma';
 import { ArticlesModule } from './modules/articles/articles.module';
 
 @Module({
@@ -12,6 +12,7 @@ import { ArticlesModule } from './modules/articles/articles.module';
       driver: ApolloDriver,
       // debug: true,
       playground: true,
+      sortSchema: true,
       autoSchemaFile: './src/schema.graphql',
     }),
     PrismaModule.forRoot({ isGlobal: true }),
@@ -20,5 +21,5 @@ import { ArticlesModule } from './modules/articles/articles.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
 

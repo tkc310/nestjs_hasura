@@ -68,9 +68,19 @@ $ npm run test:cov
     - 後方互換性が無い破壊的変更はhasuraも含めたblue/greenデプロイが最適となる
 - [NestJS+Prisma+prisma-nestjs-graphqlで快適なGraphQL環境構築](https://zenn.dev/mano_r/articles/8d25be4b4452dd)
   - `$ cd apps && npx nest new api`
+    - 直下にnest-cli.json, tsconfig, src/, test/が生成される
+    - デフォルトのtsconfigはdecorator有効、any制約無効などstrictよりは緩い
+    - src/
+      - controller ... プレゼンテーション, service呼び出し
+      - service ... ユースケースロジック
+      - main ... bootstrap, db/appサーバのシグナル制御
+      - module ... application設定、ファイル同士の依存宣言
   - `$ npx nest add nestjs-prisma`
     - プロジェクト直下に `prisma/schema.prisma` が生成される
     - package.jsonにprisma関連のscriptsが追加される
     - package.jsonのprismaセクションにseedが追加される
       - schemaの場所などprisma関連ファイルのディレクトリ設定はここに追記すれば良さそう
-    
+- [nestjs graphql quick start](https://docs.nestjs.com/graphql/quick-start#installation)
+  - 公式の方が正しそう
+
+
